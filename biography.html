@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Biography</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(0,0,0,0.6); /* semi-transparent to reveal animated background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.35);
+            display: flex;
+            gap: 30px;
+            position: relative;
+            z-index: 2; /* raised so container stays clearly above animated background */
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+        }
+
+        .profile-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-img img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fdfdfd;
+        }
+
+        .bio {
+            flex: 2;
+        }
+
+        .bio h1 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .bio h3 {
+            color: #2caafe;
+            margin-bottom: 10px;
+        }
+
+        .bio p {
+            line-height: 1.6;
+            color: #2caafe;
+        }
+
+        /* intro paragraph variant (white text) */
+        .bio p.lead {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .info {
+            margin-top: 20px;
+        }
+
+        .info span {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2caafe;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section h4 {
+            margin-bottom: 8px;
+            color: #2caafe;
+        }
+
+        .section ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #2caafe;
+        }
+
+        .section ul li {
+            margin-bottom: 6px;
+        }
+
+        /* Back to Home button aligned to the right */
+        .bio .back-home {
+            display: inline-block;
+            float: right;
+            margin-top: 16px;
+            background: #e53935; /* red */
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .bio .back-home:hover {
+            background: #c62828; /* darker red on hover */
+        }
+
+        /* ensure floats don't break the layout */
+        .bio::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* Rainbow animated background (animated gradient) */
+        :root {
+            --rainbow-speed: 18s;
+            --rainbow-opacity: 0.88;
+            --rainbow-blur: 52px;
+        }
+        .animated-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .animated-bg .rainbow {
+            position: absolute;
+            inset: -15%; /* extend beyond viewport for smooth edges */
+            background: linear-gradient(90deg, #ff3b30, #ff9500, #ffcc00, #34c759, #007aff, #5856d6, #ff2d55, #ff3b30);
+            background-size: 400% 400%;
+            filter: blur(var(--rainbow-blur));
+            opacity: var(--rainbow-opacity);
+            mix-blend-mode: screen;
+            animation: rainbow-slide var(--rainbow-speed) linear infinite;
+            transform: translateZ(0);
+        }
+        @keyframes rainbow-slide {
+            0%{ background-position: 0% 50%; }
+            50%{ background-position: 100% 50%; }
+            100%{ background-position: 0% 50%; }
+        }
+        .animated-bg .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.16));
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+        /* Responsive: reduce blur and opacity on small screens */
+        @media (max-width: 640px) {
+            .animated-bg .rainbow { filter: blur(36px); opacity: 0.75; }
+        }
+        /* Respect system reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .animated-bg .rainbow { animation: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg" aria-hidden="true">
+        <span class="rainbow" aria-hidden="true"></span>
+        <span class="overlay" aria-hidden="true"></span>
+    </div>
+    <div class="container">
+        <div class="profile-img">
+            <img src="dave.jpg" alt="Profile Picture">
+        </div>
+
+        <div class="bio">
+            <h1>Dave Mark M. Cabeza</h1>
+            <h3>Web Developer / IT Student</h3>
+
+            <p class="lead">
+                Hello! My name is Dave Mark M. Cabeza. I am passionate about technology, web development,
+                and creative design. I enjoy learning new skills and building useful projects.
+            </p>
+
+            <div class="info">
+                <span> Age: 20</span>
+                <span> Location: Davao City, Philippines</span>
+                <span> Email: d.cabeza.557640@umindanao.edu.ph</span>
+            </div>
+
+            <div class="section">
+                <h4> Skills</h4>
+                <ul>
+                    <li>HTML & CSS</li>
+                    <li>JavaScript</li>
+                    <li>Basic Python</li>
+                    <li>Responsive Web Design</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4> Hobbies</h4>
+                <ul>
+                    <li>Coding</li>
+                
+                    <li>Listening to Music</li>
+                    <li>Playing Games</li>
+                </ul>
+            </div>
+<a href="http://127.0.0.1:5500/Portfolio.html#home" class="btn btn-warning back-home"> Back to Home</a>
+    
+        </div>
+    </div>
+ 
+    
+</body>
+</html>

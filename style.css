@@ -1,0 +1,168 @@
+/* ========== ANIMATIONS ========== */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-in animation from left */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Zoom-in animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Pulse glow animation for Read More button */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(13, 110, 253, 0.8);
+    transform: scale(1.02);
+  }
+}
+
+/* ========== ANIMATIONS APPLIED ========== */
+
+/* Hero section - fade in */
+#home h1, #home p, #home .btn {
+  animation: fadeIn 1s ease-in;
+}
+
+/* About section */
+#about img {
+  animation: slideIn 0.8s ease-out;
+}
+
+#about h2, #about p, #about .btn {
+  animation: slideIn 0.8s ease-out 0.2s both;
+}
+
+/* Skills cards - zoom in */
+.skill-card {
+  animation: zoomIn 0.6s ease-out;
+}
+
+.skill-card:nth-child(1) { animation-delay: 0s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.4s; }
+.skill-card:nth-child(4) { animation-delay: 0.6s; }
+
+/* Projects cards - slide up */
+.card {
+  animation: slideUp 0.6s ease-out;
+}
+
+.card:nth-child(1) { animation-delay: 0s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+
+/* Contact and footer - fade in */
+#contact h2, #contact p {
+  animation: fadeIn 1s ease-in;
+}
+
+/* ========== HOVER EFFECTS ========== */
+
+/* Button hover effects */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-light:hover {
+  transform: scale(1.05);
+}
+
+/* Card hover effects */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Skill card hover */
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Read More button special animation */
+.read-more-btn {
+  animation: pulseGlow 2s ease-in-out infinite !important;
+}
+
+.read-more-btn:hover {
+  animation: none;
+  transform: scale(1.08) !important;
+  box-shadow: 0 0 25px rgba(13, 110, 253, 0.9) !important;
+}
+
+.view-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.view-btn:hover {
+    background-color: #218838;
+}
+
+
+
